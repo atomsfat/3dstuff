@@ -2,15 +2,15 @@ use <../MCAD/boxes.scad>
 module weatherRadio(){
 	translate([23.5,16.4,-2])
 	rotate([90,0,90])
-	cube([7.8, 12, 2.5]);
+	cube([7.8, 12, 3]);
 
 	translate([0,11,-2])
 	rotate([90,0,90])
-	cube([5, 12, 2.5]);
+	cube([5, 12, 3]);
 
 	translate([2.6,2.5,-2])
 	rotate([90,0,0])
-	cube([20.4, 12, 2.5]);
+	cube([20.4, 12, 3]);
 
 	cube([26, 31.6, 6.7]);
 	translate([19.5,31.6, 4.0])
