@@ -1,4 +1,3 @@
-use <../MCAD/boxes.scad>
 module weatherRadio(){
 	translate([23.5,16.4,-2])
 	rotate([90,0,90])
@@ -15,19 +14,12 @@ module weatherRadio(){
 	cube([26, 31.6, 6.7]);
 	translate([19.5,31.6, 4.0])
 	rotate([90,0,180])
-	cylinder(h=8, r=2.5);
-	translate([17,31.6, -6])	
-	cube([5, 8, 10]);
+	cylinder(h=8, r=3);
+	translate([16.5,31.6, -6])	
+	cube([6, 8, 10]);
 }
 
-module cover(){
-	color("Blue")
-	difference(){
-		cube([35, 40, 12]);
-		translate([1, 1, 1.5])
-		cube([33, 38, 12]);
-	}	
-}
+
 module base(){
 	difference(){
 		difference(){
@@ -48,16 +40,25 @@ module baseRadio(){
 	weatherRadio();	
 }
 
+module holder(x, y, z, width, cleareance){
+    wall = (2*width) + (2*cleareance) ;
+    trans = width + cleareance; 
+    difference(){
+        cube([x + wall, y + wall, z + wall]);
+        translate([width , width, trans])
+        cube([x + (2*cleareance) , y + (2*cleareance), z + wall+1]);
+    }
+}
+
 module finalCover(){
+ 
 	difference(){
 		translate([34.5, 0, 12])
 		rotate([0,180,0])
-		cover();
-		translate([1.5, 2, 0])
-		baseRadio();
+		   holder(31, 36 ,9, 1.5, .4);
+           translate([1.5, 2, 0])
+           baseRadio();
 	}
-
-
 }
 
 
