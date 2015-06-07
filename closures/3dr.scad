@@ -1,24 +1,26 @@
 use <holder.scad>
 
 
-module 3dr(){
-    x=27;
-    y=35;
+module 3dr1(){
+    x=17.5;
+    y=47;
     //base
     color("gray")
-    cube([x,y,2.5]);
-    //relay
-    translate([6,6,2.5])
-    color("blue")
-    cube([15,19,15.5]);
-    //hot conection
-    translate([6,27,2.5])
+    cube([x,y,5]);
+
+    //antenas
+    translate([0,47,2.5])
     color("red")
-    cube([15,13,8]);
-    //logic conection
-    translate([12,-4, 4.5])
+    union(){
+        cube([7,1.6,7]);
+        translate([3.5,1.6, 3.5])
+        rotate([-90,0,0])
+        cylinder(h=8, r=3.5);
+    }    
+    //usb port
+    translate([2.25,-11, 2.5])
     color("green")
-    cube([9,9,5]);
+    cube([13,15,5]);
  
 }
 
@@ -28,11 +30,23 @@ wallWidth = 1.5;
 cleareance = .4;
 wall = wallWidth + cleareance;
 
- 3dr();
+module base1(){
+    translate([wall, wall, wall])
+    3dr1();
 
+    difference(){
+        holder(17, 47, 5, wallWidth, cleareance);
+        color("Blue")
+        translate([wall, wall, wall])
+        3dr1();
+     }
+} 
+
+base1();
 //difference(){
-//    holder(27,35, 5, wallWidth, cleareance);
-//    translate([wall, wall, wall])
-//    color("Blue")
-//    3dr();
- //}
+    //rotate([0,180,0])
+    //translate([-(17+3*wall), -(wall) , -(5+4*wall) ])
+   // %holder(17+2*wall, 47+2*wall, 5+2*wall, wallWidth, //cleareance);
+//    base1();
+//}
+ 
