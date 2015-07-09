@@ -39,8 +39,10 @@ module arduino() {
 
 difference () {
 	translate([0, -3, 0])cube ([60,6,16]);
-#	translate([10,-4,10])rotate([-90,0,0]) cylinder(8,1.7,1.7);
-#	translate([50,-4,10])rotate([-90,0,0]) cylinder(8,1.7,1.7);
+#	translate([10,-1,10])rotate([-90,0,0]) cylinder(5,3,3);
+#	translate([50,-1,10])rotate([-90,0,0]) cylinder(5,3,3);    
+#	translate([10,-4,10])rotate([-90,0,0]) cylinder(3,1.7,1.7);
+#	translate([50,-4,10])rotate([-90,0,0]) cylinder(3,1.7,1.7);
 }
 
 
@@ -72,4 +74,4 @@ beehome (60,113,0.75,7.6);
 
 
 
-// color ("green")translate([3,8,4])  arduino();
+color ("green")translate([3,8,4])  arduino();
